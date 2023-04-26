@@ -59,3 +59,8 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: core.setFailed('It seems the build process failed silently. See previous step for more info.')
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ matrix.platform }}
+          path: dist/electron/Packaged/r2modman*.*
